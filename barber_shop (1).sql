@@ -38,12 +38,12 @@ CREATE TABLE `barbero` (
 --
 
 INSERT INTO `barbero` (`idBarbero`, `nombreCompleto`, `telefono`) VALUES
-(1, 'Helmer hamariles', 3138273456),
-(2, 'stiven leal', 3203568754),
-(3, 'pepe ortiz', 3503685678),
-(4, 'pablo rodriguez', 3148687435),
-(5, 'arnoldo la maquina', 3246542345),
-(6, 'mathias pedregal', 3208345672);
+(1, 'Helmer amariles', 3138273456),
+(2, 'Brahyan estiven leal', 3202166561),
+(3, 'Pepe ortiz', 3503685678),
+(4, 'Pablo rodriguez', 3148687435),
+(5, 'Arnoldo suarez', 3246542345),
+(6, 'Mathias pedregal', 3208345672);
 
 -- --------------------------------------------------------
 
