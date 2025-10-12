@@ -22,6 +22,7 @@
 
     <section class="inicio" id="inicio">
         <h1>Bienvenidos a Barber Shop</h1>
+        
         <p>
             En Barber Shop nos especializamos en cortes modernos y clásicos, afeitados profesionales y tratamientos capilares.
             Nuestro equipo está listo para ofrecerte la mejor experiencia, con productos de calidad y atención personalizada.
@@ -77,6 +78,321 @@
         <p>Email: info@barbershop.com</p>
     </section>
 
-   
+  <!-- === CLIENTE === -->
+<form>
+    <section class="cliente" id="cliente">
+        <h2>Registro de Cliente</h2>
+        <label for="numDocum">Número de Documento:</label>
+        <input type="number" id="numDocum" name="numDocum" required><br>
+
+        <label for="nombreCompleto">Nombre Completo:</label>
+        <input type="text" id="nombreCompleto" name="nombreCompleto" required><br>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required><br>
+
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion" required><br>
+
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" name="correo" required><br>
+
+        <label for="idtipoDoc">ID Tipo Documento:</label>
+        <input type="number" id="idtipoDoc" name="idtipoDoc" required><br>
+
+        <button type="submit">Registrarme</button>
+    </section>
+</form>
+
+<!-- === TIPO DE DOCUMENTO === -->
+<form>
+    <section class="tipoDocumento" id="tipoDocumento">
+        <h2>Registro del Tipo de Documento</h2>
+        <label for="idtipoDoc">ID Tipo Documento:</label>
+        <input type="number" id="idtipoDoc" name="idtipoDoc" required><br>
+
+        <label for="tipoDoc">Tipo de Documento:</label>
+        <input type="text" id="tipoDoc" name="tipoDoc" required><br>
+
+        <button type="submit">Registrar Tipo de Documento</button>
+    </section>
+</form>
+
+<!-- === PROVEEDOR === -->
+<form>
+    <section class="proveedor" id="proveedor">
+        <h2>Registro de Proveedor</h2>
+        <label for="NITproveedor">NIT Proveedor:</label>
+        <input type="text" id="NITproveedor" name="NITproveedor" required><br>
+
+        <label for="nombreProveedor">Nombre Proveedor:</label>
+        <input type="text" id="nombreProveedor" name="nombreProveedor" required><br>
+
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion" required><br>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required><br>
+
+        <button type="submit">Registrar Proveedor</button>
+    </section>
+</form>
+
+<!-- === PROVEEDOR PRODUCTO === -->
+<form>
+    <section class="proveedorProducto" id="proveedorProducto">
+        <h2>Registro de Proveedor Producto</h2>
+        <label for="idProveProd">ID ProveedorProducto:</label>
+        <input type="number" id="idProveProd" name="idProveProd" required><br>
+
+        <label for="NITproveedor">NIT del Proveedor:</label>
+        <input type="text" id="NITproveedor" name="NITproveedor" required><br>
+
+        <label for="idProducto">ID Producto:</label>
+        <input type="number" id="idProducto" name="idProducto" required><br>
+
+        <button type="submit">Registrar Relación</button>
+    </section>
+</form>
+
+<!-- === PRODUCTO === -->
+<form>
+    <section class="producto" id="producto">
+        <h2>Registro de Producto</h2>
+        <label for="idProducto">ID Producto:</label>
+        <input type="number" id="idProducto" name="idProducto" required><br>
+
+        <label for="nomProducto">Nombre del Producto:</label>
+        <input type="text" id="nomProducto" name="nomProducto" required><br>
+
+        <label for="precioUni">Precio Unitario:</label>
+        <input type="number" id="precioUni" name="precioUni" required><br>
+
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" name="cantidad" required><br>
+
+        <label for="idMarca">ID Marca:</label>
+        <input type="number" id="idMarca" name="idMarca" required><br>
+
+        <label for="idCategoria">ID Categoría:</label>
+        <input type="number" id="idCategoria" name="idCategoria" required><br>
+
+        <button type="submit">Registrar Producto</button>
+    </section>
+</form>
+
+<!-- === MARCA === -->
+<form>
+    <section class="marca" id="marca">
+        <h2>Registro de Marca</h2>
+        <label for="idMarca">ID Marca:</label>
+        <input type="number" id="idMarca" name="idMarca" required><br>
+
+        <label for="marca">Nombre de la Marca:</label>
+        <input type="text" id="marca" name="marca" required><br>
+
+        <button type="submit">Registrar Marca</button>
+    </section>
+</form>
+
+<!-- === CATEGORÍA === -->
+<form>
+    <section class="categoria" id="categoria">
+        <h2>Registro de Categoría</h2>
+        <label for="idCategoria">ID Categoría:</label>
+        <input type="number" id="idCategoria" name="idCategoria" required><br>
+
+        <label for="categoria">Nombre de Categoría:</label>
+        <input type="text" id="categoria" name="categoria" required><br>
+
+        <button type="submit">Registrar Categoría</button>
+    </section>
+</form>
+
+<!-- === VENTA PRODUCTO === -->
+<form>
+    <section class="ventaProducto" id="ventaProducto">
+        <h2>Registro de Venta de Producto</h2>
+        <label for="idVentaProducto">ID Venta Producto:</label>
+        <input type="number" id="idVentaProducto" name="idVentaProducto" required><br>
+
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" required><br>
+
+        <label for="hora">Hora:</label>
+        <input type="time" id="hora" name="hora" required><br>
+
+        <label for="total">Total:</label>
+        <input type="number" id="total" name="total" required><br>
+
+        <label for="numDocum">Número Documento Cliente:</label>
+        <input type="number" id="numDocum" name="numDocum" required><br>
+
+        <button type="submit">Registrar Venta</button>
+    </section>
+</form>
+
+<!-- === DETALLE VENTA PRODUCTO === -->
+<form>
+    <section class="detalleVentaProducto" id="detalleVentaProducto">
+        <h2>Detalle Venta de Producto</h2>
+        <label for="idDetalle">ID Detalle:</label>
+        <input type="number" id="idDetalle" name="idDetalle" required><br>
+
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" name="cantidad" required><br>
+
+        <label for="precioUnitario">Precio Unitario:</label>
+        <input type="number" id="precioUnitario" name="precioUnitario" required><br>
+
+        <label for="subtotal">Subtotal:</label>
+        <input type="number" id="subtotal" name="subtotal" required><br>
+
+        <label for="idProducto">ID Producto:</label>
+        <input type="number" id="idProducto" name="idProducto" required><br>
+
+        <label for="idVentaProducto">ID Venta Producto:</label>
+        <input type="number" id="idVentaProducto" name="idVentaProducto" required><br>
+
+        <button type="submit">Registrar Detalle</button>
+    </section>
+</form>
+
+<!-- === SERVICIO === -->
+<form>
+    <section class="servicio" id="servicio">
+        <h2>Registro de Servicio</h2>
+        <label for="idServicio">ID Servicio:</label>
+        <input type="number" id="idServicio" name="idServicio" required><br>
+
+        <label for="nombreServ">Nombre Servicio:</label>
+        <input type="text" id="nombreServ" name="nombreServ" required><br>
+
+        <label for="precioUni">Precio Unitario:</label>
+        <input type="number" id="precioUni" name="precioUni" required><br>
+
+        <label for="duracion">Duración:</label>
+        <p>Desde las</p>
+        <input type="time" id="duracion" name="duracion" required>
+        <p>Hasta las</p>
+        <input type="time" id="duracion" name="duracion" required>
+        <br>
+
+        <button type="submit">Registrar Servicio</button>
+    </section>
+</form>
+
+<!-- === VENTA SERVICIO === -->
+<form>
+    <section class="ventaServicio" id="ventaServicio">
+        <h2>Registro de Venta de Servicio</h2>
+        <label for="idVentaServi">ID Venta Servicio:</label>
+        <input type="number" id="idVentaServi" name="idVentaServi" required><br>
+
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" required><br>
+
+        <label for="hora">Hora:</label>
+        <input type="time" id="hora" name="hora" required><br>
+
+        <label for="numDocum">Número Documento Cliente:</label>
+        <input type="number" id="numDocum" name="numDocum" required><br>
+
+        <label for="total">Total:</label>
+        <input type="number" id="total" name="total" required><br>
+
+        <button type="submit">Registrar Venta de Servicio</button>
+    </section>
+</form>
+
+<!-- === DETALLE VENTA SERVICIO === -->
+<form>
+    <section class="detalleVentaServicio" id="detalleVentaServicio">
+        <h2>Detalle Venta de Servicio</h2>
+        <label for="idDetalle">ID Detalle:</label>
+        <input type="number" id="idDetalle" name="idDetalle" required><br>
+
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" name="cantidad" required><br>
+
+        <label for="precioUnitario">Precio Unitario:</label>
+        <input type="number" id="precioUnitario" name="precioUnitario" required><br>
+
+        <label for="subtotal">Subtotal:</label>
+        <input type="number" id="subtotal" name="subtotal" required><br>
+
+        <label for="idServicio">ID Servicio:</label>
+        <input type="number" id="idServicio" name="idServicio" required><br>
+
+        <label for="idVentaServi">ID Venta Servicio:</label>
+        <input type="number" id="idVentaServi" name="idVentaServi" required><br>
+
+        <button type="submit">Registrar Detalle</button>
+    </section>
+</form>
+
+<!-- === CITA === -->
+<form>
+    <section class="cita" id="cita">
+        <h2>Registro de Cita</h2>
+        <label for="idCita">ID Cita:</label>
+        <input type="number" id="idCita" name="idCita" required><br>
+
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" required><br>
+
+        <label for="hora">Hora:</label>
+        <input type="time" id="hora" name="hora" required><br>
+
+        <label for="numDocum">Número Documento Cliente:</label>
+        <input type="number" id="numDocum" name="numDocum" required><br>
+
+        <label for="idBarbero">ID Barbero:</label>
+        <input type="number" id="idBarbero" name="idBarbero" required><br>
+
+        <label for="idEstado">ID Estado:</label>
+        <input type="number" id="idEstado" name="idEstado" required><br>
+
+        <button type="submit">Registrar Cita</button>
+    </section>
+</form>
+
+<!-- === BARBERO === -->
+<form>
+    <section class="barbero" id="barbero">
+        <h2>Registro de Barbero</h2>
+        <label for="idBarbero">ID Barbero:</label>
+        <input type="number" id="idBarbero" name="idBarbero" required><br>
+
+        <label for="nombreCompleto">Nombre Completo:</label>
+        <input type="text" id="nombreCompleto" name="nombreCompleto" required><br>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required><br>
+
+        <button type="submit">Registrar Barbero</button>
+    </section>
+</form>
+
+<!-- === ESTADO === -->
+<form>
+    <section class="estado" id="estado">
+        <h2>Registro de Estado</h2>
+        <label for="idEstado">ID Estado:</label>
+        <input type="number" id="idEstado" name="idEstado" required><br>
+
+        <label for="estado">Estado:</label>
+<select id="estado" name="estado" required>
+  <option value="">Seleccione el estado de la cita: </option>
+  <option value="activo">Activo</option>
+  <option value="inactivo">Inactivo</option>
+  <option value="cancelado">Cancelado</option>
+  <option value="pendiente">Pendiente</option>
+</select><br>
+
+        <button type="submit">Registrar Estado</button>
+    </section>
+</form>
+
 </body>
 </html>
