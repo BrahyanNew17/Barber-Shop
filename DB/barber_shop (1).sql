@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-10-2025 a las 02:33:03
+-- Tiempo de generación: 13-10-2025 a las 01:11:40
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `barbero` (
   `idBarbero` int(11) NOT NULL,
-  `nombreCompleto` varchar(60) DEFAULT NULL,
+  `nomCompleto` varchar(50) DEFAULT NULL,
   `telefono` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -37,13 +37,12 @@ CREATE TABLE `barbero` (
 -- Volcado de datos para la tabla `barbero`
 --
 
-INSERT INTO `barbero` (`idBarbero`, `nombreCompleto`, `telefono`) VALUES
-(1, 'Helmer hamariles', 3138273456),
-(2, 'stiven leal', 3203568754),
-(3, 'pepe ortiz', 3503685678),
-(4, 'pablo rodriguez', 3148687435),
-(5, 'arnoldo la maquina', 3246542345),
-(6, 'mathias pedregal', 3208345672);
+INSERT INTO `barbero` (`idBarbero`, `nomCompleto`, `telefono`) VALUES
+(1, 'Pepe el motilador', 3158719834),
+(2, 'Stiven Leyva', 3208673456),
+(3, 'David Coy', 3138511911),
+(4, 'Sebastian trujillo', 3203516932),
+(5, 'Duban hernandez', 3583567892);
 
 -- --------------------------------------------------------
 
@@ -52,49 +51,46 @@ INSERT INTO `barbero` (`idBarbero`, `nombreCompleto`, `telefono`) VALUES
 --
 
 CREATE TABLE `categoria` (
-  `idcategoria` int(11) NOT NULL,
-  `categoria` varchar(60) DEFAULT NULL
+  `idCategoria` int(11) NOT NULL,
+  `categoria` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `categoria`
 --
 
-INSERT INTO `categoria` (`idcategoria`, `categoria`) VALUES
+INSERT INTO `categoria` (`idCategoria`, `categoria`) VALUES
 (1, 'Maquinas y herramientas electricas'),
 (2, 'Tijeras y herramientas manuales'),
 (3, 'Cuidado capilar y estilizado'),
-(4, 'Barba y afeitado'),
-(5, 'Higiene y desinfeccion');
+(4, 'Cuidado de la barba y afeitado'),
+(5, 'Higiene y desifenccion');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `citas`
+-- Estructura de tabla para la tabla `cita`
 --
 
-CREATE TABLE `citas` (
+CREATE TABLE `cita` (
   `idCita` int(11) NOT NULL,
   `fecha` date DEFAULT NULL,
   `hora` time DEFAULT NULL,
-  `fechapago` date DEFAULT NULL,
-  `idCliente` int(11) DEFAULT NULL,
-  `idEstadocita` int(11) DEFAULT NULL,
+  `numDocum` bigint(20) DEFAULT NULL,
   `idBarbero` int(11) DEFAULT NULL,
-  `idpago` int(11) DEFAULT NULL
+  `idEstado` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `citas`
+-- Volcado de datos para la tabla `cita`
 --
 
-INSERT INTO `citas` (`idCita`, `fecha`, `hora`, `fechapago`, `idCliente`, `idEstadocita`, `idBarbero`, `idpago`) VALUES
-(1, '2025-10-05', '14:30:00', '2025-10-05', 1, 2, 1, 1),
-(2, '2025-10-06', '10:00:00', '2025-10-06', 2, 1, 2, 3),
-(3, '2025-10-04', '12:30:00', '2025-10-04', 3, 3, 3, 1),
-(4, '2025-10-06', '09:30:00', '2025-10-06', 4, 1, 4, 2),
-(5, '2025-10-01', '15:30:00', '2025-10-01', 5, 2, 5, 4),
-(6, '2025-08-10', '18:30:00', '2025-08-10', 6, 2, 6, 3);
+INSERT INTO `cita` (`idCita`, `fecha`, `hora`, `numDocum`, `idBarbero`, `idEstado`) VALUES
+(1, '2025-10-12', '15:00:00', 900123456, 1, 1),
+(2, '2025-10-09', '10:00:00', 8765432, 2, 3),
+(3, '2025-10-13', '14:30:00', 1012345678, 3, 2),
+(4, '2025-05-14', '10:30:00', 1105305047, 4, 5),
+(5, '2025-11-23', '16:30:00', 2210987654, 5, 6);
 
 -- --------------------------------------------------------
 
@@ -103,129 +99,97 @@ INSERT INTO `citas` (`idCita`, `fecha`, `hora`, `fechapago`, `idCliente`, `idEst
 --
 
 CREATE TABLE `cliente` (
-  `idCliente` int(11) NOT NULL,
-  `nombreCompleto` varchar(60) DEFAULT NULL,
-  `telefono` bigint(20) DEFAULT NULL,
-  `correo` varchar(60) DEFAULT NULL,
-  `fechaRegistro` date DEFAULT NULL,
-  `idTipoDocumento` int(11) DEFAULT NULL
+  `numDocum` bigint(20) NOT NULL,
+  `nombreComplet` varchar(60) DEFAULT NULL,
+  `Telefono` bigint(20) DEFAULT NULL,
+  `direccion` varchar(60) DEFAULT NULL,
+  `correo` varchar(50) DEFAULT NULL,
+  `idtipoDoc` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`idCliente`, `nombreCompleto`, `telefono`, `correo`, `fechaRegistro`, `idTipoDocumento`) VALUES
-(1, 'Andres Felipe Ramirez', 3001234567, 'andres.ramirez@gmail.com', '2024-03-12', 1),
-(2, 'Juan Camilo Torres', 3152347701, 'juan.torres@correo.com', '2023-11-21', 2),
-(3, 'Carlos Alberto Gomez', 3116783344, 'calberto.gomez@outlook.com', '2025-06-18', 3),
-(4, 'Sebastian Alejandro Ruiz', 3054120098, 'sebastian.ruiz@mail.com', '2023-05-14', 4),
-(5, 'Diego Fernando Castro', 3183347722, 'diego.castro@gmail.com', '2024-01-27', 5),
-(6, 'Miguel Angel Herrera', 3149096677, 'miguel.herrera@outlook.com', '2025-03-25', 1);
+INSERT INTO `cliente` (`numDocum`, `nombreComplet`, `Telefono`, `direccion`, `correo`, `idtipoDoc`) VALUES
+(8765432, 'John Michael Carter', 3205551010, 'Calle 10 #5-20, Cali, Valle del Cauca', 'mailto:john.carter@example.com', 4),
+(900123456, 'Diego Alejandro Mu?oz', 3056667788, 'Carrera 15 #60-40, Barranquilla, Atlantico', 'mailto:diego.munoz@example.com', 3),
+(1012345678, 'Andres Felipe Ram?rez', 3004123456, 'Calle 45 #12-34, Bogota, Cundinamarca', 'mailto:andres.ramirez@example.com', 1),
+(1105305047, 'Diego Alejandro Munoz', 3056667788, 'Carrera 15 #60-40, Barranquilla, Atlantico', 'mailto:diego.munoz@example.com', 2),
+(2210987654, 'Camilo Andres Torres', 3127703344, 'Avenida 30 #22-11, Pereira, Risaralda', 'mailto:camilo.torres@example.com', 5);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `detallecita`
+-- Estructura de tabla para la tabla `detalleventproducto`
 --
 
-CREATE TABLE `detallecita` (
-  `idDetalle` int(11) NOT NULL,
-  `precio` int(11) DEFAULT NULL,
-  `observaciones` varchar(100) DEFAULT NULL,
-  `idServicio` int(11) DEFAULT NULL,
-  `idCita` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `detallecita`
---
-
-INSERT INTO `detallecita` (`idDetalle`, `precio`, `observaciones`, `idServicio`, `idCita`) VALUES
-(1, 35000, 'implementar masajes', 5, 1),
-(2, 17000, 'muy buena la experencia', 1, 2),
-(3, 27000, 'una experencia muy buena', 4, 3),
-(4, 10000, 'muy bueno', 2, 4),
-(5, 8000, 'super recomendado', 3, 5),
-(6, 35000, 'muy top', 5, 6);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `detalleventa`
---
-
-CREATE TABLE `detalleventa` (
-  `idDetalle` int(11) NOT NULL,
+CREATE TABLE `detalleventproducto` (
+  `idDetalleVent` int(11) NOT NULL,
   `cantidad` int(11) DEFAULT NULL,
   `precioUnitario` int(11) DEFAULT NULL,
-  `idVenta` int(11) DEFAULT NULL,
-  `idProduc` int(11) DEFAULT NULL
+  `subTotal` int(11) DEFAULT NULL,
+  `idProducto` int(11) DEFAULT NULL,
+  `idVentaProducto` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `detalleventa`
+-- Volcado de datos para la tabla `detalleventproducto`
 --
 
-INSERT INTO `detalleventa` (`idDetalle`, `cantidad`, `precioUnitario`, `idVenta`, `idProduc`) VALUES
-(1, 2, 25000, 6, 10),
-(2, 1, 32000, 4, 9),
-(3, 10, 30000, 1, 5),
-(4, 1, 30000, 2, 6),
-(5, 4, 400000, 3, 7),
-(6, 3, 35000, 5, 4);
+INSERT INTO `detalleventproducto` (`idDetalleVent`, `cantidad`, `precioUnitario`, `subTotal`, `idProducto`, `idVentaProducto`) VALUES
+(1, 1, 45000, 50000, 10, 3),
+(2, 2, 45000, 50000, 1, 2),
+(3, 3, 32000, 40000, 4, 1),
+(4, 4, 45000, 60000, 6, 4),
+(5, 5, 25000, 50000, 8, 5);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `estadocita`
+-- Estructura de tabla para la tabla `detalleventservicio`
 --
 
-CREATE TABLE `estadocita` (
-  `idEstadocita` int(11) NOT NULL,
+CREATE TABLE `detalleventservicio` (
+  `idDetalle` int(11) NOT NULL,
+  `precioUnitario` int(11) DEFAULT NULL,
+  `idServicio` int(11) DEFAULT NULL,
+  `idVentaServi` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `detalleventservicio`
+--
+
+INSERT INTO `detalleventservicio` (`idDetalle`, `precioUnitario`, `idServicio`, `idVentaServi`) VALUES
+(1, 17000, 1, 1),
+(2, 35000, 6, 2),
+(3, 23000, 5, 3),
+(4, 34000, 4, 4),
+(5, 35000, 3, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estado`
+--
+
+CREATE TABLE `estado` (
+  `idEstado` int(11) NOT NULL,
   `estado` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `estadocita`
+-- Volcado de datos para la tabla `estado`
 --
 
-INSERT INTO `estadocita` (`idEstadocita`, `estado`) VALUES
-(1, 'programada'),
-(2, 'realizada'),
-(3, 'cancelada por cliente'),
-(4, 'cancelada por barberia');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `inventario`
---
-
-CREATE TABLE `inventario` (
-  `idProduc` int(11) NOT NULL,
-  `nombre` varchar(40) DEFAULT NULL,
-  `cantidad` int(11) DEFAULT NULL,
-  `precio` int(11) DEFAULT NULL,
-  `idMarca` int(11) DEFAULT NULL,
-  `idcategoria` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `inventario`
---
-
-INSERT INTO `inventario` (`idProduc`, `nombre`, `cantidad`, `precio`, `idMarca`, `idcategoria`) VALUES
-(1, 'patllera detailer', 5, 50000, 1, 1),
-(2, 'afeitadora profoil', 4, 35000, 2, 1),
-(3, 'maquina classic 76', 3, 80000, 4, 1),
-(4, 'tijera white line', 12, 35000, 6, 2),
-(5, 'cuchillas pro guard', 50, 50000, 7, 2),
-(6, 'pomada blue strong hold', 3, 60000, 8, 3),
-(7, 'Shampoo killer', 4, 40000, 9, 3),
-(8, 'aceite para barbar', 5, 30000, 11, 4),
-(9, 'champu barba', 4, 35000, 12, 4),
-(10, 'desinfectante liquido', 3, 20000, 13, 5);
+INSERT INTO `estado` (`idEstado`, `estado`) VALUES
+(1, 'Programada'),
+(2, 'En Servicio'),
+(3, 'Completada'),
+(4, 'Cancelada por Barberia'),
+(5, 'Cancelada por Usuario'),
+(6, 'No Asistio');
 
 -- --------------------------------------------------------
 
@@ -245,64 +209,55 @@ CREATE TABLE `marca` (
 INSERT INTO `marca` (`idMarca`, `marca`) VALUES
 (1, 'Wahl'),
 (2, 'Andis'),
-(3, 'BabylissPro'),
-(4, 'Oster'),
+(3, 'Oster'),
+(4, 'BabylissPRO'),
 (5, 'Kemei'),
 (6, 'Jaguar'),
 (7, 'Kiepe'),
-(8, 'Rauzel'),
-(9, 'Barber Mind'),
-(10, 'American Crew'),
-(11, 'Proaso'),
-(12, 'The Beard Club'),
-(13, 'Barbicide'),
-(14, 'Andis cool Care'),
-(15, 'Lysol');
+(8, 'Feather'),
+(9, 'Reuzel'),
+(10, 'Suavecito'),
+(11, 'Layrite'),
+(12, 'Proraso'),
+(13, 'The Shaving Co'),
+(14, 'Barbcide'),
+(15, 'Andis Cool care'),
+(16, 'Clorox'),
+(17, 'Takara Belmont'),
+(18, 'Pibbs'),
+(19, 'Kiepe Professional'),
+(20, 'Sibel');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `metodopago`
+-- Estructura de tabla para la tabla `producto`
 --
 
-CREATE TABLE `metodopago` (
-  `idpago` int(11) NOT NULL,
-  `metodo` varchar(20) DEFAULT NULL
+CREATE TABLE `producto` (
+  `idProducto` int(11) NOT NULL,
+  `nomProduc` varchar(30) DEFAULT NULL,
+  `precioUni` int(11) DEFAULT NULL,
+  `cantidad` int(11) DEFAULT NULL,
+  `idMarca` int(11) DEFAULT NULL,
+  `idCategoria` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `metodopago`
+-- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `metodopago` (`idpago`, `metodo`) VALUES
-(1, 'Pagos en efectivo'),
-(2, 'Bancolombia'),
-(3, 'Nequi'),
-(4, 'Daviplata'),
-(5, 'Bancolombia a la man'),
-(6, 'visa');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `nombreservicio`
---
-
-CREATE TABLE `nombreservicio` (
-  `idservi` int(11) NOT NULL,
-  `servicio` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `nombreservicio`
---
-
-INSERT INTO `nombreservicio` (`idservi`, `servicio`) VALUES
-(1, 'corte de cabello'),
-(2, 'barba'),
-(3, 'cejas'),
-(4, 'corte + barba'),
-(5, 'corte + barba + cejas');
+INSERT INTO `producto` (`idProducto`, `nomProduc`, `precioUni`, `cantidad`, `idMarca`, `idCategoria`) VALUES
+(1, 'Cortodora Magic Clip', 45000, 4, 1, 1),
+(2, 'Patillera T-Outliner', 65000, 3, 2, 1),
+(3, 'Tijeras de corte Silver', 45000, 5, 6, 2),
+(4, 'Navaja Plegable', 32000, 8, 8, 2),
+(5, 'Pomada Strong Hold', 30000, 5, 9, 3),
+(6, 'Cera Original', 45000, 6, 10, 3),
+(7, 'Aceite para barba Wood & Spice', 32000, 4, 12, 4),
+(8, 'Balsamo para barba Original', 25000, 5, 13, 4),
+(9, 'Desinfectante concentrado', 25000, 4, 14, 5),
+(10, 'Spray Cool Care', 45000, 5, 15, 5);
 
 -- --------------------------------------------------------
 
@@ -311,73 +266,72 @@ INSERT INTO `nombreservicio` (`idservi`, `servicio`) VALUES
 --
 
 CREATE TABLE `proveedor` (
-  `NITproveedor` varchar(30) NOT NULL,
-  `nombreProveedor` varchar(50) DEFAULT NULL,
-  `telefono` bigint(20) DEFAULT NULL,
-  `direccion` varchar(50) DEFAULT NULL
+  `NITproveedor` varchar(20) NOT NULL,
+  `nombreProveedor` varchar(40) DEFAULT NULL,
+  `direcProveedor` varchar(40) DEFAULT NULL,
+  `telefono` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `proveedor`
 --
 
-INSERT INTO `proveedor` (`NITproveedor`, `nombreProveedor`, `telefono`, `direccion`) VALUES
-('802547891-9', 'Productos Reuzel & Co.', 6017159940, 'Cra 7 #120-15, Bogota D.C.'),
-('900654987-2', 'Higiene Profesional Barber Ltda.', 6053564412, 'Calle 72 #52-10, Barranquilla, Atlantico'),
-('900987654-3', 'Estilo & corte Distribuciones', 6043012298, 'Calle 45 #18-32, Medelli, Antioquia'),
-('901236587-1', 'ProBarber Colombia S.A.S.', 6024897715, 'Av. 3 Norte #25-60, Cali, Valle del Cauca'),
-('901458123-4', 'Barber tools S.A.S', 6014567821, 'Cra 10 #15-24, Bogota D.C.'),
-('901555221-0', 'Equipos Wahl Colombia S.A.S.', 6014678852, 'Autopista Norte #106-45, Bogota D.C.');
+INSERT INTO `proveedor` (`NITproveedor`, `nombreProveedor`, `direcProveedor`, `telefono`) VALUES
+('2345729045', 'Andis Latinoamerica', 'Calle 127 #19A-45, Bogota D.C.', 3142908876),
+('2354891247', 'Barber Shop Supply', 'Carrera 15 #93-60, Bogota D.C.', 3175112224),
+('3546789123', 'Cosmeticos y Belleza S.A.S.', 'Avenida 30 de Agosto #45-20, Pereira, Ri', 6063249080),
+('46576913246', 'Distribuidora Wahl Colombia', 'Carrera 68 #70-11, Bogota D.C.', 17456543),
+('9011687283', 'Barber Depot Colombia', 'Calle 53 #16-35, Bogota D.C.', 3204567890),
+('9845614786', 'Beauty Supply Center', 'Calle 9 #42-35, Medellin, Antioquia', 6043225566);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `proveedorinventario`
+-- Estructura de tabla para la tabla `proveedorproducto`
 --
 
-CREATE TABLE `proveedorinventario` (
-  `idproveinven` int(11) NOT NULL,
-  `NITproveedor` varchar(30) DEFAULT NULL,
-  `idproduc` int(11) DEFAULT NULL
+CREATE TABLE `proveedorproducto` (
+  `idProveProduc` int(11) NOT NULL,
+  `NITproveedor` varchar(20) DEFAULT NULL,
+  `idProducto` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `proveedorinventario`
+-- Volcado de datos para la tabla `proveedorproducto`
 --
 
-INSERT INTO `proveedorinventario` (`idproveinven`, `NITproveedor`, `idproduc`) VALUES
-(1, '802547891-9', 1),
-(2, '900654987-2', 2),
-(3, '900987654-3', 3),
-(4, '901236587-1', 4),
-(5, '901458123-4', 5),
-(6, '901555221-0', 6),
-(7, '900654987-2', 10);
+INSERT INTO `proveedorproducto` (`idProveProduc`, `NITproveedor`, `idProducto`) VALUES
+(1, '2345729045', 1),
+(2, '2354891247', 2),
+(3, '3546789123', 3),
+(4, '46576913246', 4),
+(5, '9011687283', 5),
+(6, '9845614786', 6);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `servicios`
+-- Estructura de tabla para la tabla `servicio`
 --
 
-CREATE TABLE `servicios` (
+CREATE TABLE `servicio` (
   `idServicio` int(11) NOT NULL,
-  `descripcion` varchar(100) DEFAULT NULL,
-  `precio` int(11) DEFAULT NULL,
-  `duracionServicio` varchar(30) DEFAULT NULL,
-  `idservi` int(11) DEFAULT NULL
+  `nombreServi` varchar(60) DEFAULT NULL,
+  `precioUni` int(11) DEFAULT NULL,
+  `Duracio` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `servicios`
+-- Volcado de datos para la tabla `servicio`
 --
 
-INSERT INTO `servicios` (`idServicio`, `descripcion`, `precio`, `duracionServicio`, `idservi`) VALUES
-(1, 'el corte de cabello es un servicio que el cliente ordena a su gusto, ej: el corte, con cuales numero', 17000, '1 hora', 1),
-(2, 'el servicio de la barba es un servicio el cual el cliente ordena a su gusto', 10000, '30 minutos', 2),
-(3, 'las cejas es un servicio que el cliente ordena a su gusto', 8000, '20 minutos', 3),
-(4, 'el servicio barba mas corte es un servico que incluye una gaseosa ', 27000, '1 hora y 30 minutos', 4),
-(5, 'el servicio de corte, barba, cejas es un servicio completo ', 35000, '2 horas', 5);
+INSERT INTO `servicio` (`idServicio`, `nombreServi`, `precioUni`, `Duracio`) VALUES
+(1, 'Corte', 17000, '1 Hora'),
+(2, 'Cejas', 8000, '30 Minutos'),
+(3, 'Barba', 10000, '35 Minutos'),
+(4, 'Corte + Barba', 27000, '1 Hora 35 Minutos'),
+(5, 'Corte + Cejas', 25000, '1 Hora y 30 Minutos'),
+(6, 'Corte + Barba + Cejas', 35000, '2 Horas');
 
 -- --------------------------------------------------------
 
@@ -386,7 +340,7 @@ INSERT INTO `servicios` (`idServicio`, `descripcion`, `precio`, `duracionServici
 --
 
 CREATE TABLE `tipodocumento` (
-  `idTipoDocumento` int(11) NOT NULL,
+  `idtipoDoc` int(11) NOT NULL,
   `tipoDocumento` varchar(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -394,7 +348,7 @@ CREATE TABLE `tipodocumento` (
 -- Volcado de datos para la tabla `tipodocumento`
 --
 
-INSERT INTO `tipodocumento` (`idTipoDocumento`, `tipoDocumento`) VALUES
+INSERT INTO `tipodocumento` (`idtipoDoc`, `tipoDocumento`) VALUES
 (1, 'CC'),
 (2, 'TI'),
 (3, 'RC'),
@@ -404,27 +358,52 @@ INSERT INTO `tipodocumento` (`idTipoDocumento`, `tipoDocumento`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ventasproducto`
+-- Estructura de tabla para la tabla `ventaproducto`
 --
 
-CREATE TABLE `ventasproducto` (
-  `idVenta` int(11) NOT NULL,
-  `fechaVenta` date DEFAULT NULL,
+CREATE TABLE `ventaproducto` (
+  `idVentaProducto` int(11) NOT NULL,
+  `fecha` date DEFAULT NULL,
+  `hora` time DEFAULT NULL,
   `total` int(11) DEFAULT NULL,
-  `idCliente` int(11) DEFAULT NULL
+  `numDocum` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `ventasproducto`
+-- Volcado de datos para la tabla `ventaproducto`
 --
 
-INSERT INTO `ventasproducto` (`idVenta`, `fechaVenta`, `total`, `idCliente`) VALUES
-(1, '2025-10-05', 17000, 1),
-(2, '2025-09-23', 27000, 2),
-(3, '2024-11-23', 15000, 3),
-(4, '2025-07-05', 32000, 4),
-(5, '2025-08-22', 10000, 5),
-(6, '2025-01-13', 45000, 6);
+INSERT INTO `ventaproducto` (`idVentaProducto`, `fecha`, `hora`, `total`, `numDocum`) VALUES
+(1, '2025-10-12', '16:26:00', 23000, 8765432),
+(2, '2025-10-11', '13:30:00', 45000, 900123456),
+(3, '2025-10-23', '10:00:00', 50000, 1012345678),
+(4, '2025-05-12', '11:30:00', 15000, 1105305047),
+(5, '2025-11-18', '15:25:00', 14000, 2210987654);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ventaservicio`
+--
+
+CREATE TABLE `ventaservicio` (
+  `idVentaServi` int(11) NOT NULL,
+  `fecha` date DEFAULT NULL,
+  `hora` time DEFAULT NULL,
+  `numDocum` bigint(20) DEFAULT NULL,
+  `total` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `ventaservicio`
+--
+
+INSERT INTO `ventaservicio` (`idVentaServi`, `fecha`, `hora`, `numDocum`, `total`) VALUES
+(1, '2025-10-23', '11:00:00', 8765432, 23000),
+(2, '2025-05-12', '14:20:00', 900123456, 180000),
+(3, '2025-01-23', '15:20:00', 1012345678, 500000),
+(4, '2025-04-23', '09:30:00', 1105305047, 45000),
+(5, '2025-07-12', '17:30:00', 2210987654, 67000);
 
 --
 -- Índices para tablas volcadas
@@ -440,54 +419,45 @@ ALTER TABLE `barbero`
 -- Indices de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  ADD PRIMARY KEY (`idcategoria`);
+  ADD PRIMARY KEY (`idCategoria`);
 
 --
--- Indices de la tabla `citas`
+-- Indices de la tabla `cita`
 --
-ALTER TABLE `citas`
+ALTER TABLE `cita`
   ADD PRIMARY KEY (`idCita`),
-  ADD KEY `idCliente` (`idCliente`),
-  ADD KEY `idEstadocita` (`idEstadocita`),
+  ADD KEY `numDocum` (`numDocum`),
   ADD KEY `idBarbero` (`idBarbero`),
-  ADD KEY `idpago` (`idpago`);
+  ADD KEY `idEstado` (`idEstado`);
 
 --
 -- Indices de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`idCliente`),
-  ADD KEY `idTipoDocumento` (`idTipoDocumento`);
+  ADD PRIMARY KEY (`numDocum`),
+  ADD KEY `idtipoDoc` (`idtipoDoc`);
 
 --
--- Indices de la tabla `detallecita`
+-- Indices de la tabla `detalleventproducto`
 --
-ALTER TABLE `detallecita`
+ALTER TABLE `detalleventproducto`
+  ADD PRIMARY KEY (`idDetalleVent`),
+  ADD KEY `idProducto` (`idProducto`),
+  ADD KEY `idVentaProducto` (`idVentaProducto`);
+
+--
+-- Indices de la tabla `detalleventservicio`
+--
+ALTER TABLE `detalleventservicio`
   ADD PRIMARY KEY (`idDetalle`),
   ADD KEY `idServicio` (`idServicio`),
-  ADD KEY `idCita` (`idCita`);
+  ADD KEY `idVentaServi` (`idVentaServi`);
 
 --
--- Indices de la tabla `detalleventa`
+-- Indices de la tabla `estado`
 --
-ALTER TABLE `detalleventa`
-  ADD PRIMARY KEY (`idDetalle`),
-  ADD KEY `idVenta` (`idVenta`),
-  ADD KEY `idProduc` (`idProduc`);
-
---
--- Indices de la tabla `estadocita`
---
-ALTER TABLE `estadocita`
-  ADD PRIMARY KEY (`idEstadocita`);
-
---
--- Indices de la tabla `inventario`
---
-ALTER TABLE `inventario`
-  ADD PRIMARY KEY (`idProduc`),
-  ADD KEY `idMarca` (`idMarca`),
-  ADD KEY `idcategoria` (`idcategoria`);
+ALTER TABLE `estado`
+  ADD PRIMARY KEY (`idEstado`);
 
 --
 -- Indices de la tabla `marca`
@@ -496,16 +466,12 @@ ALTER TABLE `marca`
   ADD PRIMARY KEY (`idMarca`);
 
 --
--- Indices de la tabla `metodopago`
+-- Indices de la tabla `producto`
 --
-ALTER TABLE `metodopago`
-  ADD PRIMARY KEY (`idpago`);
-
---
--- Indices de la tabla `nombreservicio`
---
-ALTER TABLE `nombreservicio`
-  ADD PRIMARY KEY (`idservi`);
+ALTER TABLE `producto`
+  ADD PRIMARY KEY (`idProducto`),
+  ADD KEY `idMarca` (`idMarca`),
+  ADD KEY `idCategoria` (`idCategoria`);
 
 --
 -- Indices de la tabla `proveedor`
@@ -514,32 +480,38 @@ ALTER TABLE `proveedor`
   ADD PRIMARY KEY (`NITproveedor`);
 
 --
--- Indices de la tabla `proveedorinventario`
+-- Indices de la tabla `proveedorproducto`
 --
-ALTER TABLE `proveedorinventario`
-  ADD PRIMARY KEY (`idproveinven`),
+ALTER TABLE `proveedorproducto`
+  ADD PRIMARY KEY (`idProveProduc`),
   ADD KEY `NITproveedor` (`NITproveedor`),
-  ADD KEY `idproduc` (`idproduc`);
+  ADD KEY `idProducto` (`idProducto`);
 
 --
--- Indices de la tabla `servicios`
+-- Indices de la tabla `servicio`
 --
-ALTER TABLE `servicios`
-  ADD PRIMARY KEY (`idServicio`),
-  ADD KEY `idservi` (`idservi`);
+ALTER TABLE `servicio`
+  ADD PRIMARY KEY (`idServicio`);
 
 --
 -- Indices de la tabla `tipodocumento`
 --
 ALTER TABLE `tipodocumento`
-  ADD PRIMARY KEY (`idTipoDocumento`);
+  ADD PRIMARY KEY (`idtipoDoc`);
 
 --
--- Indices de la tabla `ventasproducto`
+-- Indices de la tabla `ventaproducto`
 --
-ALTER TABLE `ventasproducto`
-  ADD PRIMARY KEY (`idVenta`),
-  ADD KEY `idCliente` (`idCliente`);
+ALTER TABLE `ventaproducto`
+  ADD PRIMARY KEY (`idVentaProducto`),
+  ADD KEY `numDocum` (`numDocum`);
+
+--
+-- Indices de la tabla `ventaservicio`
+--
+ALTER TABLE `ventaservicio`
+  ADD PRIMARY KEY (`idVentaServi`),
+  ADD KEY `numDocum` (`numDocum`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -549,150 +521,137 @@ ALTER TABLE `ventasproducto`
 -- AUTO_INCREMENT de la tabla `barbero`
 --
 ALTER TABLE `barbero`
-  MODIFY `idBarbero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idBarbero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `idcategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de la tabla `citas`
+-- AUTO_INCREMENT de la tabla `cita`
 --
-ALTER TABLE `citas`
-  MODIFY `idCita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `cita`
+  MODIFY `idCita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de la tabla `cliente`
+-- AUTO_INCREMENT de la tabla `detalleventproducto`
 --
-ALTER TABLE `cliente`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `detalleventproducto`
+  MODIFY `idDetalleVent` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de la tabla `detallecita`
+-- AUTO_INCREMENT de la tabla `detalleventservicio`
 --
-ALTER TABLE `detallecita`
-  MODIFY `idDetalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `detalleventservicio`
+  MODIFY `idDetalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de la tabla `detalleventa`
+-- AUTO_INCREMENT de la tabla `estado`
 --
-ALTER TABLE `detalleventa`
-  MODIFY `idDetalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT de la tabla `estadocita`
---
-ALTER TABLE `estadocita`
-  MODIFY `idEstadocita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de la tabla `inventario`
---
-ALTER TABLE `inventario`
-  MODIFY `idProduc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+ALTER TABLE `estado`
+  MODIFY `idEstado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `marca`
 --
 ALTER TABLE `marca`
-  MODIFY `idMarca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `idMarca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT de la tabla `metodopago`
+-- AUTO_INCREMENT de la tabla `producto`
 --
-ALTER TABLE `metodopago`
-  MODIFY `idpago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `producto`
+  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT de la tabla `nombreservicio`
+-- AUTO_INCREMENT de la tabla `proveedorproducto`
 --
-ALTER TABLE `nombreservicio`
-  MODIFY `idservi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `proveedorproducto`
+  MODIFY `idProveProduc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de la tabla `proveedorinventario`
+-- AUTO_INCREMENT de la tabla `servicio`
 --
-ALTER TABLE `proveedorinventario`
-  MODIFY `idproveinven` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT de la tabla `servicios`
---
-ALTER TABLE `servicios`
-  MODIFY `idServicio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `servicio`
+  MODIFY `idServicio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `tipodocumento`
 --
 ALTER TABLE `tipodocumento`
-  MODIFY `idTipoDocumento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idtipoDoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de la tabla `ventasproducto`
+-- AUTO_INCREMENT de la tabla `ventaproducto`
 --
-ALTER TABLE `ventasproducto`
-  MODIFY `idVenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `ventaproducto`
+  MODIFY `idVentaProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `ventaservicio`
+--
+ALTER TABLE `ventaservicio`
+  MODIFY `idVentaServi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `citas`
+-- Filtros para la tabla `cita`
 --
-ALTER TABLE `citas`
-  ADD CONSTRAINT `citas_ibfk_1` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`idCliente`),
-  ADD CONSTRAINT `citas_ibfk_2` FOREIGN KEY (`idEstadocita`) REFERENCES `estadocita` (`idEstadocita`),
-  ADD CONSTRAINT `citas_ibfk_3` FOREIGN KEY (`idBarbero`) REFERENCES `barbero` (`idBarbero`),
-  ADD CONSTRAINT `citas_ibfk_4` FOREIGN KEY (`idpago`) REFERENCES `metodopago` (`idpago`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `cita`
+  ADD CONSTRAINT `cita_ibfk_1` FOREIGN KEY (`numDocum`) REFERENCES `cliente` (`numDocum`),
+  ADD CONSTRAINT `cita_ibfk_2` FOREIGN KEY (`idBarbero`) REFERENCES `barbero` (`idBarbero`),
+  ADD CONSTRAINT `cita_ibfk_3` FOREIGN KEY (`idEstado`) REFERENCES `estado` (`idEstado`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  ADD CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`idTipoDocumento`) REFERENCES `tipodocumento` (`idTipoDocumento`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`idtipoDoc`) REFERENCES `tipodocumento` (`idtipoDoc`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `detallecita`
+-- Filtros para la tabla `detalleventproducto`
 --
-ALTER TABLE `detallecita`
-  ADD CONSTRAINT `detallecita_ibfk_1` FOREIGN KEY (`idServicio`) REFERENCES `servicios` (`idServicio`),
-  ADD CONSTRAINT `detallecita_ibfk_2` FOREIGN KEY (`idCita`) REFERENCES `citas` (`idCita`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `detalleventproducto`
+  ADD CONSTRAINT `detalleventproducto_ibfk_1` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`),
+  ADD CONSTRAINT `detalleventproducto_ibfk_2` FOREIGN KEY (`idVentaProducto`) REFERENCES `ventaproducto` (`idVentaProducto`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `detalleventa`
+-- Filtros para la tabla `detalleventservicio`
 --
-ALTER TABLE `detalleventa`
-  ADD CONSTRAINT `detalleventa_ibfk_1` FOREIGN KEY (`idVenta`) REFERENCES `ventasproducto` (`idVenta`),
-  ADD CONSTRAINT `detalleventa_ibfk_2` FOREIGN KEY (`idProduc`) REFERENCES `inventario` (`idProduc`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `detalleventservicio`
+  ADD CONSTRAINT `detalleventservicio_ibfk_1` FOREIGN KEY (`idServicio`) REFERENCES `servicio` (`idServicio`),
+  ADD CONSTRAINT `detalleventservicio_ibfk_2` FOREIGN KEY (`idVentaServi`) REFERENCES `ventaservicio` (`idVentaServi`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `inventario`
+-- Filtros para la tabla `producto`
 --
-ALTER TABLE `inventario`
-  ADD CONSTRAINT `inventario_ibfk_1` FOREIGN KEY (`idMarca`) REFERENCES `marca` (`idMarca`),
-  ADD CONSTRAINT `inventario_ibfk_2` FOREIGN KEY (`idcategoria`) REFERENCES `categoria` (`idcategoria`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `producto`
+  ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`idMarca`) REFERENCES `marca` (`idMarca`),
+  ADD CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`idCategoria`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `proveedorinventario`
+-- Filtros para la tabla `proveedorproducto`
 --
-ALTER TABLE `proveedorinventario`
-  ADD CONSTRAINT `proveedorinventario_ibfk_1` FOREIGN KEY (`NITproveedor`) REFERENCES `proveedor` (`NITproveedor`),
-  ADD CONSTRAINT `proveedorinventario_ibfk_2` FOREIGN KEY (`idproduc`) REFERENCES `inventario` (`idProduc`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `proveedorproducto`
+  ADD CONSTRAINT `proveedorproducto_ibfk_1` FOREIGN KEY (`NITproveedor`) REFERENCES `proveedor` (`NITproveedor`),
+  ADD CONSTRAINT `proveedorproducto_ibfk_2` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `servicios`
+-- Filtros para la tabla `ventaproducto`
 --
-ALTER TABLE `servicios`
-  ADD CONSTRAINT `servicios_ibfk_1` FOREIGN KEY (`idservi`) REFERENCES `nombreservicio` (`idservi`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ventaproducto`
+  ADD CONSTRAINT `ventaproducto_ibfk_1` FOREIGN KEY (`numDocum`) REFERENCES `cliente` (`numDocum`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `ventasproducto`
+-- Filtros para la tabla `ventaservicio`
 --
-ALTER TABLE `ventasproducto`
-  ADD CONSTRAINT `ventasproducto_ibfk_1` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`idCliente`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ventaservicio`
+  ADD CONSTRAINT `ventaservicio_ibfk_1` FOREIGN KEY (`numDocum`) REFERENCES `cliente` (`numDocum`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
