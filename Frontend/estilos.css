@@ -1,4 +1,76 @@
+.bienvenida {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  margin-top: 20px;
+  
+}
+.nosotros {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  margin-top: 20px;
+  
+}
+.whatsapp {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 5px;
+   
+}
 
+.imgWhatsApp{
+    height: 50px;
+    
+}
+
+.gmail {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 5px;
+   
+}
+
+.imgGmail{
+    height: 50px;
+    
+}
+
+
+header {
+  background-color: #1c1c1c;
+  padding: 10px 40px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+ gap: 15px;
+}
+nav img {
+    width: 60px;
+    height: auto;
+}
+
+.logo img {
+  width: 50px;    
+  height: auto;
+  cursor: pointer; 
+}
+
+
+.menu li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.menu li a:hover {
+  color: gold; 
+}
  body {
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
@@ -12,28 +84,29 @@ header {
     padding: 20px 0;
 }
 
-nav ul {
-    list-style: none;
+nav{
     display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
+    justify-content:center; 
 }
 
-nav ul li {
-    margin: 0 20px;
+
+nav ul {
+    display: flex;
+    list-style: none;
+    display: flex;
+    gap: 25px;
 }
+
+
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.2s;
+    
 }
 
-nav ul li a:hover {
-    color: #c59d5f;
-}
+
 
 section {
     max-width: 800px;
