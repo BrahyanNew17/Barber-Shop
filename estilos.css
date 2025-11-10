@@ -1,41 +1,43 @@
 .bienvenida {
   display: flex;
-  justify-content: center; 
-  align-items: center;     
+  justify-content: center;
+  align-items: center;
   margin-top: 20px;
-  
-}
-.nosotros {
-  display: flex;
-  justify-content: center; 
-  align-items: center;     
-  margin-top: 20px;
-  
-}
-.whatsapp {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    margin-top: 5px;
-   
+
 }
 
-.imgWhatsApp{
-    height: 50px;
-    
+.nosotros {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+
+}
+
+.whatsapp {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-top: 5px;
+
+}
+
+.imgWhatsApp {
+  height: 50px;
+
 }
 
 .gmail {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    margin-top: 5px;
-   
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-top: 5px;
+
 }
 
-.imgGmail{
-    height: 50px;
-    
+.imgGmail {
+  height: 50px;
+
 }
 
 
@@ -47,17 +49,18 @@ header {
 nav {
   display: flex;
   align-items: center;
- gap: 15px;
+  gap: 15px;
 }
+
 nav img {
-    width: 60px;
-    height: auto;
+  width: 60px;
+  height: auto;
 }
 
 .logo img {
-  width: 50px;    
+  width: 50px;
   height: auto;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 
@@ -69,106 +72,363 @@ nav img {
 }
 
 .menu li a:hover {
-  color: gold; 
+  color: gold;
 }
- body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f5f5f5;
-    color: #222;
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+   background-color: #222; 
+  color: #fff;
 }
 
 header {
-    background: #222;
-    padding: 20px 0;
+  background: #222;
+  padding: 20px 0;
 }
 
-nav{
-    display: flex;
-    justify-content:center; 
+nav {
+  display: flex;
+  justify-content: center;
 }
 
 
 nav ul {
-    display: flex;
-    list-style: none;
-    display: flex;
-    gap: 25px;
+  display: flex;
+  list-style: none;
+  display: flex;
+  gap: 25px;
 }
 
 
 
 nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+
 }
 
 
 
 section {
-    max-width: 800px;
-    margin: 40px auto;
-    background: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  max-width: 800px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
 }
 
-h1, h2 {
-    color: #c59d5f;
-    margin-bottom: 15px;
+h1,
+h2 {
+  color: #c59d5f;
+  margin-bottom: 15px;
 }
 
 button {
-    background: #c59d5f;
-    color: #fff;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-top: 15px;
-    transition: background 0.2s;
+  background: #c59d5f;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.2s;
 }
 
 button:hover {
-    background: #a47c3b;
+  background: #a47c3b;
 }
+
 .navbar img {
-  height: 60px; 
+  height: 60px;
   width: auto;
   margin-left: 15px;
 }
-.iniciar_sesion{
+
+.iniciar_sesion {
   margin: 0 auto;
 }
-.title_iniciosesion{
+
+.title_iniciosesion {
   text-align: center;
 }
-.acceso{
+
+.acceso {
   text-align: center;
 }
+
 .olvido_contraseña {
-    display: flex;
-    align-items: center; 
-    justify-content: flex-end; 
-    gap: 5px; 
-    margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  margin-top: 10px;
 }
 
 .hero-recuperar {
-    
-    background-image: url("https://www.kensington.com/contentassets/f97ef3fff88e4345bda4cbafac8b2e56/forget-your-password-meta-image.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh; /* ocupa toda la altura de la ventana */
-    padding: 50px 0;
+
+  background-image: url("https://www.kensington.com/contentassets/f97ef3fff88e4345bda4cbafac8b2e56/forget-your-password-meta-image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 50px 0;
 }
-body{
+
+body {
   background-image: "https://www.kensington.com/contentassets/f97ef3fff88e4345bda4cbafac8b2e56/forget-your-password-meta-image.jpg";
   background-size: cover;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  background-color: #f7f7f7;
+ 
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 15px 40px;
+  border-bottom: 3px solid #c9a44f;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.logo h1 {
+  color: #222;
+  font-size: 22px;
+}
+
+.logo span {
+  color: #c9a44f;
+}
+
+.navbar nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.navbar nav a:hover {
+  color: #c9a44f;
+}
+
+
+.main-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+
+.sidebar {
+  width: 260px;
+  background-color: #fff;
+  padding: 25px;
+  border-right: 2px solid #e2e2e2;
+}
+
+.sidebar h2 {
+  color: #c9a44f;
+  font-size: 18px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.sidebar li {
+  padding: 10px 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.sidebar li:hover {
+  color: #c9a44f;
+}
+
+
+main {
+  flex: 1;
+  padding: 40px;
+}
+
+.search-box {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.search-box input {
+  width: 60%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  background-color: #fff;
+  color: #333;
+  text-align: center;
+  outline: none;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+  border-color: #c9a44f;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+.product-card {
+  background-color: #fff;
+  border: 1px solid #e3e3e3;
+  border-radius: 10px;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 12px rgba(201, 164, 79, 0.25);
+}
+
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 10px;
+}
+
+.product-card h3 {
+  font-size: 15px;
+  color: #222;
+  margin: 10px 0 5px;
+}
+
+.price {
+  color: #c9a44f;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.btn {
+  background-color: #c9a44f;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 18px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #d8b34d;
+}
+
+
+
+.sobre-nosotros {
+  max-width: 1000px;
+  margin: 80px auto;
+  padding: 40px 30px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  line-height: 1.8;
+  font-family: 'Poppins', sans-serif;
+  color: #222;
+}
+
+.sobre-nosotros h2 {
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.sobre-nosotros h3 {
+  font-size: 1.6em;
+  color: #c59d5f;
+  margin-top: 35px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.sobre-nosotros p {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.sobre-nosotros ul {
+  list-style: none;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  padding-left: 0;
+}
+
+.sobre-nosotros ul li {
+  background: #f8f8f8;
+  margin-bottom: 10px;
+  padding: 12px 15px;
+  border-left: 5px solid #c59d5f;
+  border-radius: 10px;
+  font-size: 1em;
+}
+
+.sobre-nosotros strong {
+  color: #111;
+}
+
+.sobre-nosotros em {
+  color: #c59d5f;
+  font-style: normal;
+  font-weight: 600;
+}
+
+
+.contenido,
+.bloque {
+  text-align: center;
+}
+
+.num {
+  color: #a47c3b;
+  width: 25px;
+  display: inline-block;
+  
 }

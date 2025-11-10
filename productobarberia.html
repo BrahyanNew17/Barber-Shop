@@ -1,0 +1,157 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios</title>
+    <link rel="stylesheet" href="estilos.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+    <header>
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">BARBER SHOP</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <img src="imagenes1/LOGO_BARBER_SHOP.png" alt="Logo Barber Shop">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="barbershop.html">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="serviciobarberia.html">Servicios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="productobarberia.html">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sobre_nosotros.html">Sobre Nosotros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contacto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="iniciar_sesion.html">Iniciar Sesion</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+  <div class="main-container">
+
+    
+    <aside class="sidebar">
+      <h2>Categorías</h2>
+      <ul id="categoryList">
+        <li onclick="filterCategory('barba')">Cuidado de barba</li>
+        <li onclick="filterCategory('cabello')">Cuidado de cabello</li>
+        <li onclick="filterCategory('after')">After Shave</li>
+        <li onclick="filterCategory('maquinas')">Máquinas / Herramientas</li>
+        <li onclick="filterCategory('accesorios')">Accesorios Barbería</li>
+        <li onclick="filterCategory('mobiliario')">Sillas y mobiliario</li>
+        <li onclick="filterCategory('higiene')">Esterilización e higiene</li>
+        <li onclick="filterCategory('peinadores')">Peinadores y capas</li>
+        <li onclick="filterCategory('toallas')">Toallas y vaporizadores</li>
+      </ul>
+    </aside>
+
+ 
+    <main style="flex: 1; margin-left: 20px;">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="🔍 Buscar productos..." onkeyup="searchProducts()">
+      </div>
+
+      <section class="products-grid" id="productContainer">
+        
+        <div class="product-card" data-category="barba">
+          <img src="https://via.placeholder.com/250x220?text=Aceite+para+Barba" alt="">
+          <h3>Aceite para Barba Proraso</h3>
+          <p class="price">$48.900</p>
+          <button class="btn">Añadir al carrito</button>
+        </div>
+
+        <div class="product-card" data-category="barba">
+          <img src="https://via.placeholder.com/250x220?text=Bálsamo+para+Barba" alt="">
+          <h3>Bálsamo para Barba Don Porfirio</h3>
+          <p class="price">$39.900</p>
+          <button class="btn">Añadir al carrito</button>
+        </div>
+
+       
+        <div class="product-card" data-category="cabello">
+          <img src="https://via.placeholder.com/250x220?text=Pomada+para+Cabello" alt="">
+          <h3>Pomada Capilar Matte</h3>
+          <p class="price">$29.900</p>
+          <button class="btn">Añadir al carrito</button>
+        </div>
+
+        
+        <div class="product-card" data-category="after">
+          <img src="https://via.placeholder.com/250x220?text=After+Shave+Proraso" alt="">
+          <h3>After Shave Proraso Mentolado</h3>
+          <p class="price">$34.500</p>
+          <button class="btn">Añadir al carrito</button>
+        </div>
+
+        
+        <div class="product-card" data-category="maquinas">
+          <img src="https://via.placeholder.com/250x220?text=Wahl+Magic+Clip" alt="">
+          <h3>Máquina Wahl Magic Clip</h3>
+          <p class="price">$549.900</p>
+          <button class="btn">Añadir al carrito</button>
+        </div>
+
+        
+        <div class="product-card" data-category="accesorios">
+          <img src="https://via.placeholder.com/250x220?text=Peine+de+Madera" alt="">
+          <h3>Peine de Madera Premium</h3>
+          <p class="price">$24.900</p>
+          <button class="btn">Añadir al carrito</button>
+        </div>
+
+       
+        <div class="product-card" data-category="mobiliario">
+          <img src="https://via.placeholder.com/250x220?text=Silla+de+Barbero" alt="">
+          <h3>Silla de Barbero Clásica</h3>
+          <p class="price">$1.850.000</p>
+          <button class="btn">Añadir al carrito</button>
+        </div>
+
+      
+        <div class="product-card" data-category="higiene">
+          <img src="https://via.placeholder.com/250x220?text=Esterilizador+UV" alt="">
+          <h3>Esterilizador UV Profesional</h3>
+          <p class="price">$320.000</p>
+          <button class="btn">Añadir al carrito</button>
+        </div>
+
+        
+        <div class="product-card" data-category="peinadores">
+          <img src="https://via.placeholder.com/250x220?text=Capa+de+Barbero" alt="">
+          <h3>Capa de Barbero Negra</h3>
+          <p class="price">$19.900</p>
+          <button class="btn">Añadir al carrito</button>
+        </div>
+
+      
+        <div class="product-card" data-category="toallas">
+          <img src="https://via.placeholder.com/250x220?text=Toalla+Caliente" alt="">
+          <h3>Toalla Caliente para Afeitado</h3>
+          <p class="price">$12.900</p>
+          <button class="btn">Añadir al carrito</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  
+
+</body>
+</html>
