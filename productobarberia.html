@@ -1,200 +1,237 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicios</title>
     <link rel="stylesheet" href="estilos.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
+    
+    <style>
+        .navbar {
+            background-color: rgba(0,0,0,0.4) !important;
+            backdrop-filter: blur(5px);
+        }
+        .bg-body-tertiary {
+            background-color: transparent !important;
+        }
+        .navbar .nav-link,
+        .navbar .navbar-brand {
+            color: white !important;
+        }
+        .navbar .nav-link:hover {
+            color: #cfcfcf !important;
+        }
+    </style>
 </head>
+
 <body>
     <header>
 
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">BARBER SHOP</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <img src="imagenes1/LOGO_BARBER_SHOP.png" alt="Logo Barber Shop">
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="barbershop.html">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="serviciobarberia.html">Servicios</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="productobarberia.html">Productos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="sobre_nosotros.html">Sobre Nosotros</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contacto</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="iniciar_sesion.html">Iniciar Sesion</a>
-        </li>
-      </ul>
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">BARBER SHOP</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <img src="imagenes1/LOGO_BARBER_SHOP.png" alt="Logo Barber Shop">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="barbershop.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="serviciobarberia.html">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="productobarberia.html">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sobre_nosotros.html">Sobre Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.html">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="iniciar_sesion.html">Iniciar Sesion</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <div class="main-container">
+
+        <aside class="sidebar">
+            <h2>Categorías</h2>
+            <ul id="categoryList">
+                <li onclick="filterCategory('barba')">Cuidado de barba</li>
+                <li onclick="filterCategory('cabello')">Cuidado de cabello</li>
+                <li onclick="filterCategory('after')">After Shave</li>
+                <li onclick="filterCategory('maquinas')">Máquinas / Herramientas</li>
+                <li onclick="filterCategory('accesorios')">Accesorios Barbería</li>
+                <li onclick="filterCategory('mobiliario')">Sillas y mobiliario</li>
+                <li onclick="filterCategory('higiene')">Esterilización e higiene</li>
+                <li onclick="filterCategory('peinadores')">Peinadores y capas</li>
+                <li onclick="filterCategory('toallas')">Toallas y vaporizadores</li>
+            </ul>
+        </aside>
+
+        <main style="flex: 1; margin-left: 20px;">
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Buscar productos..." onkeyup="searchProducts()">
+            </div>
+
+            <section class="productos" id="productos">
+                <h2>Cuidado de Barba</h2>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="Aceite de argán">
+                    <div class="card-body">
+                        <h5 class="card-title">Aceite para Barba de Argán</h5>
+                        <p class="card-text">Hidrata y suaviza la barba con aroma natural.</p>
+                        <a href="#" class="btn btn-primary">$29.900</a>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="Aceite de jojoba">
+                    <div class="card-body">
+                        <h5 class="card-title">Aceite para Barba de Jojoba</h5>
+                        <p class="card-text">Controla el frizz y aporta brillo saludable.</p>
+                        <a href="#" class="btn btn-primary">$31.900</a>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="Bálsamo para barba">
+                    <div class="card-body">
+                        <h5 class="card-title">Bálsamo para Barba</h5>
+                        <p class="card-text">Nutre y ayuda a dar forma sin dejar residuos.</p>
+                        <a href="#" class="btn btn-primary">$24.900</a>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="Cera de barba">
+                    <div class="card-body">
+                        <h5 class="card-title">Cera Modeladora para Barba</h5>
+                        <p class="card-text">Fijación fuerte ideal para barbas largas.</p>
+                        <a href="#" class="btn btn-primary">$19.900</a>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="Shampoo para barba">
+                    <div class="card-body">
+                        <h5 class="card-title">Shampoo para Barba</h5>
+                        <p class="card-text">Limpieza profunda sin resecar la piel.</p>
+                        <a href="#" class="btn btn-primary">$22.900</a>
+                    </div>
+                </div>
+
+                <h2>Cuidado de Cabello</h2>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="Pomada mate">
+                    <div class="card-body">
+                        <h5 class="card-title">Pomada Mate Profesional</h5>
+                        <p class="card-text">Fijación fuerte y acabado sin brillo.</p>
+                        <a href="#" class="btn btn-primary">$34.900</a>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="Gel">
+                    <div class="card-body">
+                        <h5 class="card-title">Gel Fijador</h5>
+                        <p class="card-text">Control total para estilos definidos.</p>
+                        <a href="#" class="btn btn-primary">$12.900</a>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="Cera">
+                    <div class="card-body">
+                        <h5 class="card-title">Cera para Peinar</h5>
+                        <p class="card-text">Textura natural con fijación media.</p>
+                        <a href="#" class="btn btn-primary">$17.900</a>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="Polvo">
+                    <div class="card-body">
+                        <h5 class="card-title">Polvo Voluminizador</h5>
+                        <p class="card-text">Aporta volumen instantáneo y textura.</p>
+                        <a href="#" class="btn btn-primary">$27.900</a>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="Tónico">
+                    <div class="card-body">
+                        <h5 class="card-title">Tónico Capilar</h5>
+                        <p class="card-text">Fortalece el cuero cabelludo y estimula crecimiento.</p>
+                        <a href="#" class="btn btn-primary">$32.900</a>
+                    </div>
+                </div>
+
+                <h2>After Shave</h2>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="Bálsamo Restaurador">
+                    <div class="card-body">
+                        <h5 class="card-title">Bálsamo Restaurador Pro</h5>
+                        <p class="card-text">Alivia irritación y refresca la piel.</p>
+                        <a href="#" class="btn btn-primary">$24.900</a>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="Loción Mentol Ice Fresh">
+                    <div class="card-body">
+                        <h5 class="card-title">Loción Mentol Ice Fresh</h5>
+                        <p class="card-text">Sensación fría y calmante instantánea.</p>
+                        <a href="#" class="btn btn-primary">$18.500</a>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="Gel Dermacool">
+                    <div class="card-body">
+                        <h5 class="card-title">Gel Post Afeitado Dermacool</h5>
+                        <p class="card-text">Ideal para piel sensible y afeitados muy cerrados.</p>
+                        <a href="#" class="btn btn-primary">$21.700</a>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="Spray Fresh Mist">
+                    <div class="card-body">
+                        <h5 class="card-title">Spray Tonificante Fresh Mist</h5>
+                        <p class="card-text">Spray ligero que tonifica y deja una sensación fresca inmediata.</p>
+                        <a href="#" class="btn btn-primary">$19.200</a>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="Crema After Shave Premium">
+                    <div class="card-body">
+                        <h5 class="card-title">Crema After Shave Ultra Premium</h5>
+                        <p class="card-text">Textura suave y nutritiva que regenera la piel después del afeitado.</p>
+                        <a href="#" class="btn btn-primary">$27.800</a>
+                    </div>
+                </div>
+
+            </section>
+        </main>
     </div>
-  </div>
-</nav>
-
-  
-  <div class="main-container">
-
-    
-    <aside class="sidebar">
-      <h2>Categorías</h2>
-      <ul id="categoryList">
-        <li onclick="filterCategory('barba')">Cuidado de barba</li>
-        <li onclick="filterCategory('cabello')">Cuidado de cabello</li>
-        <li onclick="filterCategory('after')">After Shave</li>
-        <li onclick="filterCategory('maquinas')">Máquinas / Herramientas</li>
-        <li onclick="filterCategory('accesorios')">Accesorios Barbería</li>
-        <li onclick="filterCategory('mobiliario')">Sillas y mobiliario</li>
-        <li onclick="filterCategory('higiene')">Esterilización e higiene</li>
-        <li onclick="filterCategory('peinadores')">Peinadores y capas</li>
-        <li onclick="filterCategory('toallas')">Toallas y vaporizadores</li>
-      </ul>
-    </aside>
-
- 
-    <main style="flex: 1; margin-left: 20px;">
-      <div class="search-box">
-        <input type="text" id="searchInput" placeholder="🔍 Buscar productos..." onkeyup="searchProducts()">
-      </div>
-<section class="productos" id="productos">
-  <h2>Cuidado de Barba</h2>
-  <section class="productos" id="productos"></section>
-      <div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="Aceite de argán">
-  <div class="card-body">
-    <h5 class="card-title">Aceite para Barba de Argán</h5>
-    <p class="card-text">Hidrata y suaviza la barba con aroma natural.</p>
-    <a href="#" class="btn btn-primary">$29.900</a>
-  </div>
-</div>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="Aceite de jojoba">
-  <div class="card-body">
-    <h5 class="card-title">Aceite para Barba de Jojoba</h5>
-    <p class="card-text">Controla el frizz y aporta brillo saludable.</p>
-    <a href="#" class="btn btn-primary">$31.900</a>
-  </div>
-</div>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="Bálsamo para barba">
-  <div class="card-body">
-    <h5 class="card-title">Bálsamo para Barba</h5>
-    <p class="card-text">Nutre y ayuda a dar forma sin dejar residuos.</p>
-    <a href="#" class="btn btn-primary">$24.900</a>
-  </div>
-</div>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="Cera de barba">
-  <div class="card-body">
-    <h5 class="card-title">Cera Modeladora para Barba</h5>
-    <p class="card-text">Fijación fuerte ideal para barbas largas.</p>
-    <a href="#" class="btn btn-primary">$19.900</a>
-  </div>
-</div>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="Shampoo para barba">
-  <div class="card-body">
-    <h5 class="card-title">Shampoo para Barba</h5>
-    <p class="card-text">Limpieza profunda sin resecar la piel.</p>
-    <a href="#" class="btn btn-primary">$22.900</a>
-  </div>
-</div>
-
-  <h2>Cuidado de Cabello</h2>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="Pomada mate">
-  <div class="card-body">
-    <h5 class="card-title">Pomada Mate Profesional</h5>
-    <p class="card-text">Fijación fuerte y acabado sin brillo.</p>
-    <a href="#" class="btn btn-primary">$34.900</a>
-  </div>
-</div>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="Gel">
-  <div class="card-body">
-    <h5 class="card-title">Gel Fijador</h5>
-    <p class="card-text">Control total para estilos definidos.</p>
-    <a href="#" class="btn btn-primary">$12.900</a>
-  </div>
-</div>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="Cera">
-  <div class="card-body">
-    <h5 class="card-title">Cera para Peinar</h5>
-    <p class="card-text">Textura natural con fijación media.</p>
-    <a href="#" class="btn btn-primary">$17.900</a>
-  </div>
-</div>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="Polvo">
-  <div class="card-body">
-    <h5 class="card-title">Polvo Voluminizador</h5>
-    <p class="card-text">Aporta volumen instantáneo y textura.</p>
-    <a href="#" class="btn btn-primary">$27.900</a>
-  </div>
-</div>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="Tónico">
-  <div class="card-body">
-    <h5 class="card-title">Tónico Capilar</h5>
-    <p class="card-text">Fortalece el cuero cabelludo y estimula crecimiento.</p>
-    <a href="#" class="btn btn-primary">$32.900</a>
-  </div>
-</div>
-<h2>After Shave</h2>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="Bálsamo Restaurador">
-  <div class="card-body">
-    <h5 class="card-title">Bálsamo Restaurador Pro</h5>
-    <p class="card-text">Alivia irritación y refresca la piel.</p>
-    <a href="#" class="btn btn-primary">$24.900</a>
-  </div>
-</div>
-
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="Loción Mentol Ice Fresh">
-  <div class="card-body">
-    <h5 class="card-title">Loción Mentol Ice Fresh</h5>
-    <p class="card-text">Sensación fría y calmante instantánea.</p>
-    <a href="#" class="btn btn-primary">$18.500</a>
-  </div>
-</div>
- 
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="Gel Dermacool">
-  <div class="card-body">
-    <h5 class="card-title">Gel Post Afeitado Dermacool</h5>
-    <p class="card-text">Ideal para piel sensible y afeitados muy cerrados.</p>
-    <a href="#" class="btn btn-primary">$21.700</a>
-  </div>
-</div>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="Spray Fresh Mist">
-  <div class="card-body">
-    <h5 class="card-title">Spray Tonificante Fresh Mist</h5>
-    <p class="card-text">Spray ligero que tonifica y deja una sensación fresca inmediata.</p>
-    <a href="#" class="btn btn-primary">$19.200</a>
-  </div>
-</div>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="Crema After Shave Premium">
-  <div class="card-body">
-    <h5 class="card-title">Crema After Shave Ultra Premium</h5>
-    <p class="card-text">Textura suave y nutritiva que regenera la piel después del afeitado.</p>
-    <a href="#" class="btn btn-primary">$27.800</a>
-  </div>
-</div>
 
 </body>
 </html>
