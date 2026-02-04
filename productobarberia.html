@@ -1,53 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicios</title>
 
-    <link rel="stylesheet" href="estilos.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="estilos.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
-    <style>
-        /* BOTÓN CARRITO */
-        .cart-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 65px;
-            height: 65px;
-            background: linear-gradient(135deg, #d4af37, #b8962f);
-            color: #000;
-            border-radius: 50%;
-            font-size: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 99999;
-            box-shadow: 0 6px 20px rgba(212,175,55,0.7);
+<style>
+    .cart-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 65px;
+        height: 65px;
+        background: linear-gradient(135deg, #d4af37, #b8962f);
+        color: #000;
+        border-radius: 50%;
+        font-size: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 99999;
+        box-shadow: 0 6px 20px rgba(212,175,55,0.7);
+    }
+
+    .cart-btn:hover {
+        transform: scale(1.1);
+    }
+
+    .remove-animation {
+        animation: removeItem 0.35s ease forwards;
+    }
+
+    @keyframes removeItem {
+        to {
+            opacity: 0;
+            transform: translateX(40px);
+            height: 0;
+            margin: 0;
+            padding: 0;
         }
-
-        .cart-btn:hover {
-            transform: scale(1.1);
-        }
-
-        /* ANIMACIÓN ELIMINAR */
-        .remove-animation {
-            animation: removeItem 0.35s ease forwards;
-        }
-
-        @keyframes removeItem {
-            to {
-                opacity: 0;
-                transform: translateX(40px);
-                height: 0;
-                margin: 0;
-                padding: 0;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 
 <body>
@@ -65,7 +63,6 @@
                     <li class="nav-item"><a class="nav-link" href="productobarberia.html">Productos</a></li>
                     <li class="nav-item"><a class="nav-link" href="sobre_nosotros.html">Sobre Nosotros</a></li>
                     <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-                    <li class="nav-item"><a class="nav-link" href="iniciar_sesion.html">Iniciar Sesión</a></li>
                 </ul>
             </div>
         </div>
@@ -77,7 +74,6 @@
     <aside class="sidebar">
         <h2>Categorías</h2>
         <ul>
-            <li><a href="barba.html">Cuidado de barba</a></li>
             <li><a href="cabello.html">Cuidado de cabello</a></li>
             <li><a href="aftershave.html">After Shave</a></li>
             <li><a href="maquinas.html">Máquinas</a></li>
@@ -114,12 +110,10 @@
     </main>
 </div>
 
-<!-- BOTÓN CARRITO -->
 <div class="cart-btn" data-bs-toggle="modal" data-bs-target="#cartModal">
     🛒
 </div>
 
-<!-- MODAL CARRITO -->
 <div class="modal fade" id="cartModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -142,55 +136,71 @@
     </div>
 </div>
 
-<!-- SCRIPT CARRITO -->
 <script>
-    const cartItems = [];
-    const cartList = document.getElementById("cartItems");
-    const cartTotal = document.getElementById("cartTotal");
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-    document.querySelectorAll(".btn.btn-primary").forEach(btn => {
-        btn.addEventListener("click", e => {
-            e.preventDefault();
+const cartList = document.getElementById("cartItems");
+const cartTotal = document.getElementById("cartTotal");
 
-            const card = btn.closest(".product-card");
-            const name = card.querySelector("h5").innerText;
-            const price = parseInt(btn.innerText.replace(/\D/g, ""));
 
-            if (!confirm(`¿Deseas añadir "${name}" al carrito por $${price}?`)) return;
+function guardar(){
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    mostrar();
+}
 
-            cartItems.push({ name, price });
-            renderCart();
-        });
+
+function agregar(nombre, precio){
+    if(confirm(`¿Deseas añadir "${nombre}" al carrito?`)){
+        
+        let producto = carrito.find(p => p.nombre === nombre);
+        if(producto){
+            producto.cantidad++; 
+        }else{
+            carrito.push({nombre, precio, cantidad: 1}); 
+        }
+        guardar();
+    }z
+}
+
+
+function eliminar(i, elemento){
+    elemento.classList.add("remove-animation");
+    setTimeout(()=>{
+        carrito.splice(i,1);
+        guardar();
+    },350);
+}
+
+
+function mostrar(){
+    cartList.innerHTML = "";
+    let total = 0;
+
+    carrito.forEach((p,i)=>{
+        let subtotal = p.precio * p.cantidad;
+        total += subtotal;
+        cartList.innerHTML += `
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>${p.nombre} x${p.cantidad} - $${subtotal.toLocaleString()}</span>
+                <button class="btn btn-sm btn-light" onclick="eliminar(${i}, this.parentElement)">X</button>
+            </li>
+        `;
     });
 
-    function renderCart() {
-        cartList.innerHTML = "";
-        let total = 0;
+    cartTotal.innerText = total.toLocaleString();
+}
 
-        cartItems.forEach((item, index) => {
-            total += item.price;
 
-            const li = document.createElement("li");
-            li.className = "list-group-item d-flex justify-content-between align-items-center";
-            li.innerHTML = `
-                <span>${item.name} - $${item.price}</span>
-                <button class="btn btn-sm" style="background:#fff;color:#000;border:1px solid #ccc;">X</button>
-            `;
+document.querySelectorAll(".product-card .btn-primary").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+        const card = btn.closest(".product-card");
+        const nombre = card.querySelector("h5").innerText;
+        const precio = parseInt(btn.innerText.replace(/\D/g,""));
+        agregar(nombre, precio);
+    });
+});
 
-            li.querySelector("button").addEventListener("click", () => {
-                li.classList.add("remove-animation");
-
-                setTimeout(() => {
-                    cartItems.splice(index, 1);
-                    renderCart();
-                }, 350);
-            });
-
-            cartList.appendChild(li);
-        });
-
-        cartTotal.innerText = total;
-    }
+document.addEventListener("DOMContentLoaded", mostrar);
 </script>
 
 </body>
