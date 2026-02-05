@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Cuidado de Cabello</title>
+<title>Máquinas de Peluquería</title>
 
 <link rel="stylesheet" href="estilos.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -29,7 +29,6 @@ border-radius:30px;
 font-weight:bold;
 cursor:pointer;
 }
-
 
 #carrito{
 position:fixed;
@@ -87,55 +86,55 @@ color:#d4af37;
 
 <body>
 
-<h2 class="text-center mt-4 text-warning">Cuidado de Cabello</h2>
+<h2 class="text-center mt-4 text-warning">Productos Desinfectantes</h2>
 
 <div class="container productos-grid mt-4">
 
     <div class="product-card mb-4">
-        <h5>Shampoo Profesional</h5>
-        <p>Limpieza profunda y refrescante.</p>
-        <button class="precio" onclick="agregar('Shampoo Profesional',25900)">
-            $25.900
+        <h5>Máquina Profesional de Corte</h5>
+        <p>Potente y precisa para todo tipo de corte.</p>
+        <button class="precio" onclick="agregar('Máquina Profesional de Corte',189900)">
+            $189.900
         </button>
     </div>
 
     <div class="product-card mb-4">
-        <h5>Acondicionador Hidratante</h5>
-        <p>Suavidad y brillo natural.</p>
-        <button class="precio" onclick="agregar('Acondicionador Hidratante',27900)">
-            $27.900
+        <h5>Patillera Profesional</h5>
+        <p>Ideal para acabados y detalles.</p>
+        <button class="precio" onclick="agregar('Patillera Profesional',129900)">
+            $129.900
         </button>
     </div>
 
     <div class="product-card mb-4">
-        <h5>Cera para Cabello</h5>
-        <p>Fijación y estilo duradero.</p>
-        <button class="precio" onclick="agregar('Cera para Cabello',21900)">
-            $21.900
+        <h5>Máquina Inalámbrica</h5>
+        <p>Batería recargable de larga duración.</p>
+        <button class="precio" onclick="agregar('Máquina Inalámbrica',219900)">
+            $219.900
         </button>
     </div>
 
     <div class="product-card mb-4">
-        <h5>Gel Fijador Profesional</h5>
-        <p>Fijación extra fuerte.</p>
-        <button class="precio" onclick="agregar('Gel Fijador Profesional',19900)">
-            $19.900
+        <h5>Máquina Fade Profesional</h5>
+        <p>Especial para degradados.</p>
+        <button class="precio" onclick="agregar('Máquina Fade Profesional',249900)">
+            $249.900
         </button>
     </div>
 
     <div class="product-card mb-4">
-        <h5>Crema Capilar Nutritiva</h5>
-        <p>Hidratación y control.</p>
-        <button class="precio" onclick="agregar('Crema Capilar Nutritiva',23900)">
-            $23.900
+        <h5>Patillera Inalámbrica</h5>
+        <p>Precisión sin cables.</p>
+        <button class="precio" onclick="agregar('Patillera Inalámbrica',159900)">
+            $159.900
         </button>
     </div>
 
     <div class="product-card mb-4">
-        <h5>Tónico Capilar</h5>
-        <p>Fortalece y refresca el cuero cabelludo.</p>
-        <button class="precio" onclick="agregar('Tónico Capilar',29900)">
-            $29.900
+        <h5>Kit Máquina + Patillera</h5>
+        <p>Combo profesional completo.</p>
+        <button class="precio" onclick="agregar('Kit Máquina + Patillera',349900)">
+            $349.900
         </button>
     </div>
 
@@ -180,7 +179,7 @@ function eliminar(i, elemento){
 function mostrar(){
     const lista = document.getElementById("lista");
     const totalDiv = document.getElementById("total");
-    lista.innerHTML = "";
+    lista.innerHTML="";
 
     let total = 0;
 
